@@ -13,22 +13,12 @@ var dataplanes = make([]string, 0)
 func main() {
 	mux := http.NewServeMux()
 
-	mux.HandleFunc("/signup", signupHandler)
 	mux.HandleFunc("/license", licenseHandler)
 	mux.HandleFunc("/instances", instancesHandler)
 	mux.HandleFunc("/dataplanes", dataplanesHandler)
 
 	log.Println("Starting server on :8080")
 	log.Fatal(http.ListenAndServe(":8080", mux))
-}
-
-func signupHandler(w http.ResponseWriter, r *http.Request) {
-	if r.Method != http.MethodPost {
-		http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
-		return
-	}
-	// OIDC registration would happen here
-	w.WriteHeader(http.StatusCreated)
 }
 
 func licenseHandler(w http.ResponseWriter, r *http.Request) {
@@ -64,11 +54,4 @@ func dataplanesHandler(w http.ResponseWriter, r *http.Request) {
 	default:
 		http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
 	}
-}
-
-// Example of OIDC verifier setup
-// oidcVerifier would initialize an OIDC provider and verifier using authentik.
-// In this skeleton implementation, it is left as a placeholder.
-func oidcVerifier() {
-	// TODO: integrate authentik OIDC verifier
 }
