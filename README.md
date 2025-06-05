@@ -18,6 +18,7 @@ Run the server:
 cd backend
 go build -mod=vendor -o mdc-console
 ./mdc-console
+
 ```
 
 If your environment uses an internal proxy, set `GOPROXY` accordingly:
