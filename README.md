@@ -18,6 +18,7 @@ Run the server:
 cd backend
 go build -mod=vendor -o mdc-console
 ./mdc-console
+
 ```
 
 If your environment uses an internal proxy, set `GOPROXY` accordingly:
@@ -28,5 +29,13 @@ go build -o mdc-console
 ./mdc-console
 ```
 
-The `frontend` directory is currently empty and will contain the React/Ant
-Design client in a separate repository.
+The `frontend` directory contains a simple React/Ant Design application.
+Run it with:
+
+```bash
+cd frontend
+npm install  # internet access or a local npm registry is required
+npm start
+```
+
+Build a production bundle with `npm run build`.
